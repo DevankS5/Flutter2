@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+/* ============================================
+   CSS VARIABLES & THEME
+   ============================================ */
+:root {
+  --background: #ffffff;
+  --foreground: #0F172A;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ============================================
+   KEYFRAMES
+   ============================================ */
+@keyframes scroll-right {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(-33.333%); }
+  100% { transform: translateX(0%); }
+}
+
+@keyframes accordion-down {
+  from { height: 0; opacity: 0; }
+  to   { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to   { height: 0; opacity: 0; }
+}
+
+@keyframes pulse-blue {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(59, 130, 246, 0); }
+}
+
+@keyframes float-up-down {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ============================================
+   GLASS MORPHISM UTILITIES
+   ============================================ */
+.glass-light {
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(59, 130, 246, 0.10);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.glass-light-enhanced {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  box-shadow: 0 12px 48px rgba(59, 130, 246, 0.08), 0 4px 16px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.80);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(59, 130, 246, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+}
+
+.glass-blue {
+  background: rgba(239, 246, 255, 0.60);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.06);
+}
+
+/* ============================================
+   GRADIENT UTILITIES
+   ============================================ */
+.hero-gradient {
+  background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 50%, #DBEAFE 100%);
+}
+
+.cta-gradient {
+  background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-hero {
+  background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 50%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================
+   ANIMATION UTILITIES
+   ============================================ */
+.marquee-right {
+  animation: scroll-right 45s linear infinite;
+}
+
+.marquee-left {
+  animation: scroll-left 45s linear infinite;
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.25s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
+.dot-pulse {
+  animation: pulse-blue 2s ease-out infinite;
+}
+
+.animate-float {
+  animation: float-up-down 4s ease-in-out infinite;
+}
+
+/* ============================================
+   SECTION DIVIDER
+   ============================================ */
+.section-divider {
+  background: linear-gradient(90deg, transparent, #3B82F6, transparent);
+  height: 1px;
+  width: 100%;
+}
+
+/* ============================================
+   CARD HOVER UTILITIES
+   ============================================ */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+/* ============================================
+   TIMELINE
+   ============================================ */
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #2563EB;
+  border: 3px solid white;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+}
+
+/* ============================================
+   GLOBAL RESETS
+   ============================================ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* iOS Safari Fix */
+@supports (-webkit-touch-callout: none) {
+  html { height: -webkit-fill-available; }
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.6);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F8FAFC; }
+::-webkit-scrollbar-thumb { background: #BFDBFE; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #93C5FD; }
+
+/* Selection */
+::selection { background: rgba(37, 99, 235, 0.15); color: #1E3A8A; }
