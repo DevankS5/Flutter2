@@ -66,7 +66,7 @@ export function HowItWorks() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-60px" }}
                         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-                        className="glass-light rounded-2xl p-6 border border-blue-100/40 card-hover md:mr-8"
+                        className="hidden md:block glass-light rounded-2xl p-6 border border-blue-100/40 card-hover md:mr-8"
                       >
                         <div className="flex items-center gap-3 mb-3">
                           <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
@@ -95,7 +95,7 @@ export function HowItWorks() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-60px" }}
                         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-                        className="glass-light rounded-2xl p-6 border border-blue-100/40 card-hover"
+                        className="hidden md:block glass-light rounded-2xl p-6 border border-blue-100/40 card-hover"
                       >
                         <div className="flex items-center gap-3 mb-3">
                           <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
