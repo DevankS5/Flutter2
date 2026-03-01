@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check } from "lucide-react";
 import { Badge } from "@/components/shared/Badge";
 import { ScrollReveal } from "@/components/effects/ScrollReveal";
 import { PRICING_PLANS } from "@/lib/constants";
-import { guessFromBrowser, formatPrice } from "@/lib/utils";
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -14,20 +13,6 @@ function scrollTo(id: string) {
 
 export function Pricing() {
   const [tab, setTab] = useState<"new" | "maintenance">("new");
-  const [currency, setCurrency] = useState<"USD" | "INR">("USD");
-
-  useEffect(() => {
-    async function detect() {
-      try {
-        const res = await fetch("/api/geo", { cache: "no-store" });
-        const data = await res.json();
-        setCurrency(data?.currency === "INR" ? "INR" : "USD");
-      } catch {
-        setCurrency(guessFromBrowser());
-      }
-    }
-    detect();
-  }, []);
 
   const plans = PRICING_PLANS[tab];
 
@@ -100,7 +85,7 @@ export function Pricing() {
               <div className="mb-6">
                 <div className="flex items-end gap-1">
                   <span className="text-4xl font-extrabold text-blue-600">
-                    {formatPrice(currency === "INR" ? plan.priceINR : plan.priceUSD, currency)}
+                    ₹{plan.priceINR.toLocaleString("en-IN")}
                   </span>
                   <span className="text-slate-400 text-sm mb-1">{plan.suffix}</span>
                 </div>
