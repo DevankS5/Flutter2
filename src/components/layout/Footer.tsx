@@ -102,10 +102,10 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-white mb-4 tracking-wide uppercase">Contact</h3>
             <ul className="space-y-3">
-              <li className="text-sm text-slate-400">📱 +91 98765 43210</li>
+              <li className="text-sm text-slate-400">📱 +91 8449308034</li>
               <li>
                 <a href="mailto:hello@flutterbyte.dev" className="text-sm text-slate-400 hover:text-blue-400 transition-colors">
-                  ✉ hello@flutterbyte.dev
+                  ✉ flutterbyte.in@gmail.com
                 </a>
               </li>
               <li className="text-sm text-slate-400">📍 Working remotely worldwide</li>
