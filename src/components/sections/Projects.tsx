@@ -13,6 +13,7 @@ export function Projects() {
     fintrack: "/images/project-fintrack.jpg",
     mediconnect: "/images/project-mediconnect.jpg",
     localride: "/images/project-localride.jpg",
+    eduverse: "/images/project-eduverse.jpg",
     shopease: "/images/project-shopease.jpg",
   };
   return (
@@ -69,7 +70,7 @@ export function Projects() {
                     </div>
 
                     {/* CTA */}
-                    <button className="flex items-center gap-1.5 text-blue-600 font-semibold text-sm group w-fit hover:text-blue-700 transition-colors">
+                    <button className="hidden items-center gap-1.5 text-blue-600 font-semibold text-sm group w-fit hover:text-blue-700 transition-colors">
                       View Case Study
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>

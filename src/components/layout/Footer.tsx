@@ -35,7 +35,7 @@ export function Footer() {
                   <path d="M14.314 0L2.3 12 6 15.7 21.684 0h-7.37zm.159 10.831l-8.73 8.73 3.7 3.7 8.737-8.737-3.707-3.693z" />
                 </svg>
               </div>
-              <span className="font-bold text-lg text-white">Flutter Byte</span>
+              <span className="font-bold text-lg text-white">FlutterByte</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
               Crafting exceptional mobile experiences with Flutter. We transform your ideas into elegant, high-performance applications.
@@ -116,7 +116,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-slate-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-xs">
-            © {year} Flutter Byte. All Rights Reserved.
+            © {year} FlutterByte. All Rights Reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-slate-500 text-xs hover:text-blue-400 transition-colors">Terms & Conditions</a>

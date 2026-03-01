@@ -34,7 +34,7 @@ export function WhyUs() {
               variants={fadeUpChild}
               className="glass-light rounded-2xl p-6 text-center border-b-2 border-blue-500"
             >
-              <p className="text-4xl md:text-5xl font-extrabold text-blue-600">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-600">
                 <CountUp
                   target={stat.value}
                   isDecimal={stat.isDecimal}

@@ -37,7 +37,7 @@ export function ContactCTA() {
                 viewport={{ once: true }}
                 className="space-y-4"
               >
-                <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight tracking-tight">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white leading-tight tracking-tight">
                   Let&apos;s Build Something<br />Amazing Together
                 </h2>
                 <p className="text-blue-100 text-lg max-w-xl mx-auto leading-relaxed">
@@ -47,7 +47,7 @@ export function ContactCTA() {
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
-                  className="mt-2 inline-flex items-center gap-2 bg-white text-blue-600 rounded-full px-10 py-4 font-bold text-lg shadow-xl shadow-white/20 hover:shadow-2xl transition-all"
+                  className="mt-2 inline-flex items-center justify-center gap-2 bg-white text-blue-600 rounded-full w-full sm:w-auto px-6 sm:px-10 py-3.5 sm:py-4 font-bold text-sm sm:text-lg shadow-xl shadow-white/20 hover:shadow-2xl transition-all"
                 >
                   BOOK FREE CONSULTATION
                   <ArrowRight className="w-5 h-5" />

@@ -52,7 +52,7 @@ export function Hero() {
         background: "radial-gradient(ellipse at 50% 30%, rgba(219, 234, 254, 0.3) 0%, transparent 70%)"
       }} />
 
-      <div className="relative max-w-5xl mx-auto px-6 md:px-8 pt-16 pb-12 text-center">
+      <div className="relative w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 pt-16 pb-12 text-center overflow-x-hidden">
         {/* Overline Badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 10 }}
@@ -68,7 +68,7 @@ export function Hero() {
           variants={headlineVariants}
           initial="hidden"
           animate="visible"
-          className="font-extrabold leading-[1.05] tracking-[-0.03em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6"
+          className="font-extrabold leading-[1.05] tracking-[-0.02em] text-[clamp(1.35rem,5.5vw,1.75rem)] sm:text-5xl md:text-6xl lg:text-7xl mb-6 w-full"
         >
           <motion.span variants={lineVariant} className="block text-slate-900">
             STOP PLANNING.
@@ -128,7 +128,7 @@ export function Hero() {
           className="flex items-center justify-center gap-4 flex-wrap mb-14"
         >
           {/* Avatars */}
-          <div className="flex -space-x-2">
+          <div className="hidden -space-x-2">
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
@@ -154,7 +154,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex gap-4 justify-center overflow-x-auto pb-4 max-w-4xl mx-auto"
+          className="flex gap-2 sm:gap-4 justify-center overflow-x-auto pb-4 w-full max-w-4xl mx-auto snap-x snap-mandatory px-2"
         >
           {phoneColors.map((gradient, index) => (
             <motion.div
@@ -163,7 +163,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 + index * 0.1 }}
               whileHover={{ y: -6, transition: { duration: 0.3 } }}
-              className="flex-shrink-0 w-[140px] md:w-[160px]"
+              className="flex-shrink-0 w-[72px] xs:w-[85px] sm:w-[130px] md:w-[160px] snap-center"
             >
               <div className={`aspect-[9/19] glass-light rounded-[2rem] overflow-hidden border border-blue-100/50 bg-gradient-to-br ${gradient} shadow-xl shadow-blue-500/5 relative`}>
                 <Image

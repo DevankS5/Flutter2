@@ -58,7 +58,7 @@ export function Testimonials() {
           className="relative"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, index) => (
+            {TESTIMONIALS.slice(0, 3).map((t, index) => (
               <motion.div
                 key={t.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -99,7 +99,7 @@ export function Testimonials() {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-8">
+          <div className="hidden items-center justify-center gap-4 mt-8">
             <button
               onClick={prev}
               className="w-10 h-10 rounded-full glass-light border border-blue-100/50 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:border-blue-200 transition-all"

@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Check } from "lucide-react";
 import { Badge } from "@/components/shared/Badge";
-import { ScrollReveal, StaggerContainer, fadeUpChild } from "@/components/effects/ScrollReveal";
+import { ScrollReveal } from "@/components/effects/ScrollReveal";
 import { PRICING_PLANS } from "@/lib/constants";
 import { guessFromBrowser, formatPrice } from "@/lib/utils";
 
@@ -52,7 +52,7 @@ export function Pricing() {
               <button
                 key={t}
                 onClick={() => setTab(t as "new" | "maintenance")}
-                className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-200 ${
+                className={`rounded-full px-3 sm:px-5 py-2 text-[0.7rem] sm:text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                   tab === t
                     ? "bg-blue-600 text-white shadow-md shadow-blue-500/25"
                     : "text-slate-600 hover:text-blue-600"
@@ -65,14 +65,18 @@ export function Pricing() {
         </ScrollReveal>
 
         {/* Cards */}
-        <StaggerContainer
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch"
-          stagger={0.1}
-        >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={tab}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch"
+          >
           {plans.map((plan) => (
             <motion.div
               key={plan.id}
-              variants={fadeUpChild}
               className={`relative flex flex-col ${
                 plan.featured
                   ? "glass-light-enhanced rounded-3xl p-8 ring-2 ring-blue-500 shadow-2xl shadow-blue-500/10"
@@ -131,7 +135,8 @@ export function Pricing() {
               </motion.button>
             </motion.div>
           ))}
-        </StaggerContainer>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

@@ -19,7 +19,7 @@ export default function Home() {
       <AmbientMeshWrapper speed={0.6} opacity={0.2} />
 
       {/* Page content */}
-      <div className="relative z-10 flex flex-col min-h-screen">
+      <div className="relative z-10 flex flex-col min-h-screen overflow-x-hidden w-full max-w-full">
         <SiteHeader />
 
         <main className="flex-1">

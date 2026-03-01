@@ -37,7 +37,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 px-4 py-4">
-      <nav className="glass-nav rounded-full max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <nav className="glass-nav rounded-full max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
         {/* Logo */}
         <a
           href="#hero"
@@ -49,7 +49,7 @@ export function SiteHeader() {
               <path d="M14.314 0L2.3 12 6 15.7 21.684 0h-7.37zm.159 10.831l-8.73 8.73 3.7 3.7 8.737-8.737-3.707-3.693z" />
             </svg>
           </div>
-          <span className="font-bold text-lg text-slate-900 tracking-tight">Flutter Byte</span>
+          <span className="font-bold text-lg text-slate-900 tracking-tight">FlutterByte</span>
         </a>
 
         {/* Desktop Nav */}
@@ -172,7 +172,7 @@ export function SiteHeader() {
                       <path d="M14.314 0L2.3 12 6 15.7 21.684 0h-7.37zm.159 10.831l-8.73 8.73 3.7 3.7 8.737-8.737-3.707-3.693z" />
                     </svg>
                   </div>
-                  <span className="font-bold text-slate-900">Flutter Byte</span>
+                  <span className="font-bold text-slate-900">FlutterByte</span>
                 </div>
                 <button
                   onClick={() => setMobileOpen(false)}
