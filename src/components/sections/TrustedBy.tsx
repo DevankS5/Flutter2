@@ -12,7 +12,8 @@ const tripleLogos = (logos: string[]) => [...logos, ...logos, ...logos];
 function LogoCard({ name }: { name: string }) {
   return (
     <div className="flex-shrink-0 w-[140px] h-[70px] rounded-xl glass-light flex items-center justify-center mx-3 group hover:border-blue-200/60 hover:scale-105 transition-all duration-300 cursor-default">
-      <span className="text-sm font-semibold text-slate-400 group-hover:text-blue-500 transition-colors tracking-wide">
+      {/* text-slate-600 ensures WCAG AA contrast on the semi-transparent white glass background */}
+      <span className="text-sm font-semibold text-slate-600 group-hover:text-blue-600 transition-colors tracking-wide">
         {name}
       </span>
     </div>

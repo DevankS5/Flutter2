@@ -48,6 +48,36 @@
 }
 
 /* ============================================
+   HERO CSS ANIMATIONS (no opacity:0 blocker)
+   CSS animations run before JS hydration so
+   the LCP element is always visible on first paint.
+   ============================================ */
+@keyframes hero-line-up {
+  from { transform: translateY(36px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Sub-headline: slide only — NEVER hide opacity so LCP paints immediately */
+@keyframes hero-sub-slide {
+  from { transform: translateY(16px); }
+  to   { transform: translateY(0); }
+}
+
+.animate-hero-line-1 {
+  animation: hero-line-up 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s both;
+}
+.animate-hero-line-2 {
+  animation: hero-line-up 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.32s both;
+}
+.animate-hero-line-3 {
+  animation: hero-line-up 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.44s both;
+}
+/* Sub-headline uses transform-only — opacity stays 1 for LCP */
+.animate-hero-sub {
+  animation: hero-sub-slide 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s both;
+}
+
+/* ============================================
    GLASS MORPHISM UTILITIES
    ============================================ */
 .glass-light {

@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
@@ -5,12 +6,25 @@ import { TrustedBy } from "@/components/sections/TrustedBy";
 import { Services } from "@/components/sections/Services";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { HowItWorks } from "@/components/sections/HowItWorks";
-import { Projects } from "@/components/sections/Projects";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { Pricing } from "@/components/sections/Pricing";
-import { FAQ } from "@/components/sections/FAQ";
-import { ContactCTA } from "@/components/sections/ContactCTA";
 import { AmbientMeshWrapper } from "@/components/effects/AmbientMeshWrapper";
+
+// Lazy-load sections that are below the fold — each gets its own JS chunk
+// This directly tackles Lighthouse items #1 #3 (JS execution & unused JS)
+const Projects = dynamic(() =>
+  import("@/components/sections/Projects").then((m) => ({ default: m.Projects }))
+);
+const Testimonials = dynamic(() =>
+  import("@/components/sections/Testimonials").then((m) => ({ default: m.Testimonials }))
+);
+const Pricing = dynamic(() =>
+  import("@/components/sections/Pricing").then((m) => ({ default: m.Pricing }))
+);
+const FAQ = dynamic(() =>
+  import("@/components/sections/FAQ").then((m) => ({ default: m.FAQ }))
+);
+const ContactCTA = dynamic(() =>
+  import("@/components/sections/ContactCTA").then((m) => ({ default: m.ContactCTA }))
+);
 
 export default function Home() {
   return (

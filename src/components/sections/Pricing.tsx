@@ -87,7 +87,8 @@ export function Pricing() {
                   <span className="text-4xl font-extrabold text-blue-600">
                     ₹{plan.priceINR.toLocaleString("en-IN")}
                   </span>
-                  <span className="text-slate-400 text-sm mb-1">{plan.suffix}</span>
+                  {/* text-slate-600 passes WCAG AA on white/glass (was text-slate-400 ≈ 2.5:1) */}
+                  <span className="text-slate-600 text-sm mb-1">{plan.suffix}</span>
                 </div>
               </div>
 

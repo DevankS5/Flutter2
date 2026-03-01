@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { Badge } from "@/components/shared/Badge";
 
@@ -23,19 +23,8 @@ const mockupImages = [
   "/images/mockup-eduverse.png",
 ];
 
-const headlineVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
-};
-
-const lineVariant: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] },
-  },
-};
+// Headline animation is now handled via CSS (.animate-hero-line-*) so the LCP
+// element is visible on first paint — before JS hydrates.
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -63,34 +52,24 @@ export function Hero() {
           <Badge>✦ Flutter Development Agency</Badge>
         </motion.div>
 
-        {/* Main Headline */}
-        <motion.h1
-          variants={headlineVariants}
-          initial="hidden"
-          animate="visible"
-          className="font-extrabold leading-[1.05] tracking-[-0.02em] text-[clamp(1.35rem,5.5vw,1.75rem)] sm:text-5xl md:text-6xl lg:text-7xl mb-6 w-full"
-        >
-          <motion.span variants={lineVariant} className="block text-slate-900">
+        {/* Main Headline — CSS animation: text is visible on first paint (no opacity:0 block) */}
+        <h1 className="font-extrabold leading-[1.05] tracking-[-0.02em] text-[clamp(1.35rem,5.5vw,1.75rem)] sm:text-5xl md:text-6xl lg:text-7xl mb-6 w-full">
+          <span className="block text-slate-900 animate-hero-line-1">
             STOP PLANNING.
-          </motion.span>
-          <motion.span variants={lineVariant} className="block gradient-text-hero">
+          </span>
+          <span className="block gradient-text-hero animate-hero-line-2">
             START LAUNCHING.
-          </motion.span>
-          <motion.span variants={lineVariant} className="block text-slate-900">
+          </span>
+          <span className="block text-slate-900 animate-hero-line-3">
             WE BUILD APPS THAT SHIP.
-          </motion.span>
-        </motion.h1>
+          </span>
+        </h1>
 
-        {/* Sub-headline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-lg md:text-xl text-slate-500 font-normal max-w-2xl mx-auto leading-relaxed mb-10"
-        >
+        {/* Sub-headline — LCP element: opacity:1 always, only translates on load */}
+        <p className="text-lg md:text-xl text-slate-500 font-normal max-w-2xl mx-auto leading-relaxed mb-10 animate-hero-sub">
           We craft high-performance Flutter applications that help startups and enterprises
           move faster, launch sooner, and grow smarter.
-        </motion.p>
+        </p>
 
         {/* CTA Buttons */}
         <motion.div
@@ -171,7 +150,9 @@ export function Hero() {
                   alt={`${appNames[index]} app screenshot`}
                   fill
                   className="object-cover"
-                  sizes="160px"
+                  sizes="(max-width: 640px) 72px, (max-width: 768px) 85px, 160px"
+                  priority={index === 0}
+                  loading={index === 0 ? "eager" : "lazy"}
                 />
                 {/* App label overlay at bottom */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/40 to-transparent px-2 pb-2 pt-4">

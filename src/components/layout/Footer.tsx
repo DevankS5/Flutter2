@@ -115,12 +115,13 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-slate-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 text-xs">
+          {/* text-slate-400 on bg-slate-900 meets WCAG AA 4.5:1 for xs text (was slate-500 ≈ 3.1:1) */}
+          <p className="text-slate-400 text-xs">
             © {year} FlutterByte. All Rights Reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-slate-500 text-xs hover:text-blue-400 transition-colors">Terms & Conditions</a>
-            <a href="#" className="text-slate-500 text-xs hover:text-blue-400 transition-colors">Privacy Policy</a>
+            <a href="#" className="text-slate-400 text-xs hover:text-blue-400 transition-colors">Terms & Conditions</a>
+            <a href="#" className="text-slate-400 text-xs hover:text-blue-400 transition-colors">Privacy Policy</a>
           </div>
         </div>
       </div>

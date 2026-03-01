@@ -128,7 +128,7 @@ export default function AmbientMesh({ speed = 0.6, opacity = 0.2 }: AmbientMeshP
     window.addEventListener("resize", resize);
 
     let raf: number;
-    let startTime = Date.now();
+    const startTime = Date.now();
     const targetDelta = isMobile ? 50 : 33;
     let lastFrame = 0;
 

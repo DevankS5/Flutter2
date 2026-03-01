@@ -2,10 +2,13 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+// Only load the exact weights used across the site — reduces font payload significantly
 const inter = Inter({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
   variable: "--font-inter",
+  preload: true,
 });
 
 export const metadata: Metadata = {
