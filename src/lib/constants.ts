@@ -265,7 +265,7 @@ export const PRICING_PLANS = {
       id: "basic",
       name: "Frontend Development",
       subtitle: "Basic App Package",
-      priceINR: 20000,
+      priceINR: 39999,
       suffix: "/project",
       featured: false,
       features: [
@@ -283,7 +283,7 @@ export const PRICING_PLANS = {
       id: "mvp",
       name: "MVP Development",
       subtitle: "Recommended Package",
-      priceINR: 25000,
+      priceINR: 49999,
       suffix: "/project",
       featured: true,
       features: [
@@ -302,7 +302,7 @@ export const PRICING_PLANS = {
       id: "premium",
       name: "Full-Cycle Development",
       subtitle: "Premium Package",
-      priceINR: 30000,
+      priceINR: 69999,
       suffix: "/project",
       featured: false,
       features: [
